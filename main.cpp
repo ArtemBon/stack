@@ -11,6 +11,7 @@ public:
     ~TStack();
     bool push(char elem);
     bool pop(char  &elem);
+    bool isEmpty();
 };
 
 TStack::TStack(): stack(new char[SIZ]), len(0) {}
@@ -35,6 +36,11 @@ TStack::~TStack()
     stack = nullptr;
 }
 
+bool TStack::isEmpty()
+{
+    return len == 0;
+}
+
 int main()
 {
     TStack stack;
@@ -48,6 +54,8 @@ int main()
     cout << "Symbols in reversal\n";
     while (stack.pop(c))
         cout << c;
+    cout << endl;
+    if (stack.isEmpty()) cout << "Stack is empty\n";
 
     return 0;
 }
