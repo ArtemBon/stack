@@ -12,6 +12,7 @@ public:
     ~TStack();
     bool push(T elem);
     bool pop(T  &elem);
+    bool isEmpty();
 };
 
 template <class T>
@@ -40,6 +41,12 @@ TStack<T>::~TStack()
     stack = nullptr;
 }
 
+template <class T>
+bool TStack<T>::isEmpty()
+{
+    return len == 0;
+}
+
 int main()
 {
     TStack<char> stack;
@@ -53,6 +60,8 @@ int main()
     cout << "Symbols in reversal\n";
     while (stack.pop(c))
         cout << c;
+    cout << endl;
+    if (stack.isEmpty()) cout << "Stack is empty\n";
 
     return 0;
 }
