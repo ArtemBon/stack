@@ -3,7 +3,7 @@
 using namespace std;
 
 class TStack{
-    static const int SIZ = 100;
+    static const int SIZ = 10;
     char *stack;
     unsigned len;
 public:
@@ -37,6 +37,17 @@ TStack::~TStack()
 
 int main()
 {
+    TStack stack;
+    char c;
+    while (cin >> c){
+        if (!stack.push(c)){
+            cout << "Stack Overflow\n";
+            break;
+        }
+    }
+    cout << "Symbols in reversal\n";
+    while (stack.pop(c))
+        cout << c;
 
     return 0;
 }
